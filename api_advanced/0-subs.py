@@ -12,5 +12,6 @@ def number_of_subscribers(subreddit):
                        headers={
                            'User-Agent': 'Mozilla/5.0'}) \
         .json()
-    subscribers_count = res.get('data').get('subscribers')
-    return subscribers_count if subscribers_count is not None else 0
+    subscribers_count = res.get('data').get('subscribers') \
+        if res.get('data').get('subscribers') is not None else 0
+    return subscribers_count

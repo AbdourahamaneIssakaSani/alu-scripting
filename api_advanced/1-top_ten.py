@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""""Doc"""
+import requests
+
+
 def top_ten(subreddit):
     """"Doc"""
     url = "https://www.reddit.com/r/{}/top.json?limit=10" \

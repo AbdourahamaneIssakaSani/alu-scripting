@@ -5,7 +5,7 @@ import requests
 
 def top_ten(subreddit):
     """"Doc"""
-    url = "https://www.reddit.com/r/{}/top.json?limit=10" \
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10" \
         .format(subreddit)
 
     res = requests.get(url,

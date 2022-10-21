@@ -18,6 +18,7 @@ def count_words(subreddit, word_list, after="", words_count={}):
     after = json_res.get('data').get('after')
     has_next = after is not None
     hot_titles = []
+    print(word_list)
     words = word_list.lower().split()
 
     if len(words_count) == 0:

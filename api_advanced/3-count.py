@@ -54,9 +54,7 @@ def count_words(subreddit, word_list, after="", words_count={}):
         words_count = sorted(words_count.items(),
                              key=lambda item: item[1],
                              reverse=True)
-        print(words_count)
-        new_dict = dict(item for item in words_count)
 
-        # print(new_dict)
-        # for word, count in new_dict.items():
-        # print("{}: {}".format(word, count))
+        for i in range(len(words_count)):
+            print("{}: {}".format(words_count[i][0],
+                                  words_count[i][1]))

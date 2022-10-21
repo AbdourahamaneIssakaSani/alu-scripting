@@ -50,9 +50,12 @@ def count_words(subreddit, word_list, after="", words_count={}):
         # words_count = {key: value for key, value in
         #                sorted(words_count.items(),
         #                       key=lambda item: item[1], reverse=True)}
-        words_count = dict(sorted(words_count.items(),
-                                  key=lambda item: item[1],
-                                  reverse=True))
 
-    for word, count in words_count.items():
-        print("{}: {}".format(word, count))
+        words_count = sorted(words_count.items(),
+                             key=lambda item: item[1],
+                             reverse=True)
+        new_dict = dict(item for item in words_count)
+
+        # print(new_dict)
+        for word, count in new_dict.items():
+            print("{}: {}".format(word, count))

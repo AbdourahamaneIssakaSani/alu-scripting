@@ -14,12 +14,11 @@ def count_words(subreddit, word_list, after="", words_count={}):
     if res.status_code != 200:
         return
 
-    json_res = res.json()
+    json_res = res.json()  # chch
     after = json_res.get('data').get('after')
     has_next = after is not None
     hot_titles = []
-    
-    words = word_list  # no time to change if a list
+    words = word_list  # they are sending a list not string
 
     if len(words_count) == 0:
         words_count = {word: 0 for word in words}
@@ -44,11 +43,16 @@ def count_words(subreddit, word_list, after="", words_count={}):
         # print(after + "\t" + str(has_next))
         return count_words(subreddit, word_list, after, words_count)
     else:
+
         words_count = dict(filter(lambda item: item[1] != 0,
                                   words_count.items()))
-        words_count = {key: value for key, value in
-                       sorted(words_count.items(),
-                              key=lambda item: item[1], reverse=True)}
+        # their python version is not making people’s life easier
+        # words_count = {key: value for key, value in
+        #                sorted(words_count.items(),
+        #                       key=lambda item: item[1], reverse=True)}
+        words_count = dict(sorted(words_count.items(),
+                                  key=lambda item: item[1],
+                                  reverse=True))
 
     for word, count in words_count.items():
         print("{}: {}".format(word, count))

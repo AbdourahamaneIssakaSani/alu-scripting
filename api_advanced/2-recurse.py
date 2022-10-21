@@ -20,8 +20,8 @@ def recurse(subreddit, hot_list=[], after=""):
         json_res = res.json()
         # print(json_res.get('data').get('after'))
         after = json_res.get('data').get('after')
-        has_next = json_res.get('data') \
-                       .get('after') is not None
+        has_next = \
+            json_res.get('data').get('after') is not None
         # print(has_next)
         hot_articles = json_res.get('data').get('children')
         [hot_list.append(article.get('data').get('title'))

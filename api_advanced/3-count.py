@@ -18,7 +18,7 @@ def count_words(subreddit, word_list, after="", words_count={}):
     after = json_res.get('data').get('after')
     has_next = after is not None
     hot_titles = []
-    words = word_list  # they are sending a list not string
+    words = [word.lower() for word in word_list]
 
     if len(words_count) == 0:
         words_count = {word: 0 for word in words}
